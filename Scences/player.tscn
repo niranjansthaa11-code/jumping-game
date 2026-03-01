@@ -1,0 +1,90 @@
+[gd_scene load_steps=13 format=3 uid="uid://dyg5a1qw6lbvt"]
+
+[ext_resource type="Texture2D" uid="uid://bpnvj431ohjwq" path="res://Assets/Sprites/spr_player_run_strip9.png" id="1_uo0j8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdd1h"]
+atlas = ExtResource("1_uo0j8")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njme2"]
+atlas = ExtResource("1_uo0j8")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xvqy"]
+atlas = ExtResource("1_uo0j8")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfn50"]
+atlas = ExtResource("1_uo0j8")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26jep"]
+atlas = ExtResource("1_uo0j8")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0j0c"]
+atlas = ExtResource("1_uo0j8")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0f5m"]
+atlas = ExtResource("1_uo0j8")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbly7"]
+atlas = ExtResource("1_uo0j8")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qye4j"]
+atlas = ExtResource("1_uo0j8")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ywsr4"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_fdd1h")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_njme2")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_5xvqy")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_yfn50")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_26jep")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_f0j0c")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_n0f5m")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_xbly7")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_qye4j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tbo0y"]
+height = 54.0
+
+[node name="Player" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ywsr4")
+frame = 8
+frame_progress = 0.25621107
+
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
+position = Vector2(-2, -2)
+shape = SubResource("CapsuleShape2D_tbo0y")
