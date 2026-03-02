@@ -1,14 +1,37 @@
-[gd_scene load_steps=2 format=3 uid="uid://bfclw846vf0mv"]
+[gd_scene load_steps=5 format=3 uid="uid://bfclw846vf0mv"]
 
 [ext_resource type="PackedScene" uid="uid://dyg5a1qw6lbvt" path="res://Scences/player.tscn" id="1_7h65x"]
+[ext_resource type="Texture2D" uid="uid://bpxrhqyx5lbq3" path="res://Assets/Background/HD Black Grid Lines Transparent Background.jpg" id="2_y2857"]
+[ext_resource type="PackedScene" uid="uid://dgxec3y7ksfli" path="res://Scences/floor.tscn" id="3_cvrwf"]
+
+[sub_resource type="TileSet" id="TileSet_erdem"]
 
 [node name="Game_Manager" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_erdem")
 format = 2
 
 [node name="TileMapLayer" type="TileMapLayer" parent="TileMap"]
+tile_set = SubResource("TileSet_erdem")
 
-[node name="Player" parent="." instance=ExtResource("1_7h65x")]
-position = Vector2(140, 1673)
-scale = Vector2(3, 3)
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -4
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.48235294)
+position = Vector2(200, 299.99997)
+scale = Vector2(0.8333333, 1.25)
+texture = ExtResource("2_y2857")
+metadata/_edit_group_ = true
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_7h65x")]
+position = Vector2(80, 448)
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Floor" parent="Node2D" instance=ExtResource("3_cvrwf")]
+position = Vector2(96, 560)
+
+[node name="Floor2" parent="Node2D" instance=ExtResource("3_cvrwf")]
+position = Vector2(304, 560)

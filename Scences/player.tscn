@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://dyg5a1qw6lbvt"]
+[gd_scene load_steps=14 format=3 uid="uid://dyg5a1qw6lbvt"]
 
+[ext_resource type="Script" uid="uid://cjoenllmiu6pn" path="res://scripts/player.gd" id="1_fdd1h"]
 [ext_resource type="Texture2D" uid="uid://bpnvj431ohjwq" path="res://Assets/Sprites/spr_player_run_strip9.png" id="1_uo0j8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fdd1h"]
@@ -70,21 +71,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 12.0
+"speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tbo0y"]
-height = 54.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fdd1h"]
+height = 48.0
 
-[node name="Player" type="Node2D"]
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_fdd1h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ywsr4")
-frame = 8
-frame_progress = 0.25621107
 
-[node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
-position = Vector2(-2, -2)
-shape = SubResource("CapsuleShape2D_tbo0y")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_fdd1h")
