@@ -20,18 +20,22 @@ layer = -4
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
 modulate = Color(1, 1, 1, 0.48235294)
-position = Vector2(200, 299.99997)
-scale = Vector2(0.8333333, 1.25)
+position = Vector2(276, 451.99997)
+scale = Vector2(1.15, 1.8833333)
 texture = ExtResource("2_y2857")
 metadata/_edit_group_ = true
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_7h65x")]
-position = Vector2(80, 448)
+position = Vector2(64, 832)
+scale = Vector2(2, 2)
 
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="Floor" parent="Node2D" instance=ExtResource("3_cvrwf")]
-position = Vector2(96, 560)
+position = Vector2(224, 864)
 
 [node name="Floor2" parent="Node2D" instance=ExtResource("3_cvrwf")]
-position = Vector2(304, 560)
+position = Vector2(440, 864)
+
+[node name="Floor3" parent="Node2D" instance=ExtResource("3_cvrwf")]
+position = Vector2(72, 864)
