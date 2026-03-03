@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bw08ihafslfft"]
+
+[ext_resource type="Texture2D" uid="uid://bos06wm1ahc4h" path="res://Assets/Background/2557-removebg-preview.png" id="1_sdvpc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_muwr7"]
+radius = 112.0
+
+[node name="Area2D" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_muwr7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_sdvpc")

@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfclw846vf0mv"]
+[gd_scene load_steps=9 format=3 uid="uid://bfclw846vf0mv"]
 
 [ext_resource type="PackedScene" uid="uid://dyg5a1qw6lbvt" path="res://Scences/player.tscn" id="1_7h65x"]
 [ext_resource type="Script" uid="uid://dggpj5u5q12sl" path="res://scripts/game_manager.gd" id="1_erdem"]
 [ext_resource type="PackedScene" uid="uid://dgxec3y7ksfli" path="res://Scences/floor.tscn" id="3_cvrwf"]
 [ext_resource type="Texture2D" uid="uid://bbv5lgtqe6aon" path="res://Assets/Background/Purple_Nebula_03-512x512.png" id="4_erdem"]
+[ext_resource type="PackedScene" uid="uid://bw08ihafslfft" path="res://Scences/black_hole.tscn" id="5_oait6"]
+[ext_resource type="Script" uid="uid://deilpkf15n3gj" path="res://scripts/blackhole.gd" id="5_y7cpi"]
+[ext_resource type="Texture2D" uid="uid://bos06wm1ahc4h" path="res://Assets/Background/2557-removebg-preview.png" id="7_4eofb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y7cpi"]
+size = Vector2(1248, 408)
 
 [node name="Game_Manager" type="Node2D"]
 script = ExtResource("1_erdem")
@@ -31,6 +37,7 @@ position = Vector2(104, 560)
 position = Vector2(296, 800)
 
 [node name="Floor3" parent="Floor" instance=ExtResource("3_cvrwf")]
+modulate = Color(0.4445588, 0.12738895, 0.058477618, 1)
 position = Vector2(288, 392)
 
 [node name="Floor4" parent="Floor" instance=ExtResource("3_cvrwf")]
@@ -38,3 +45,98 @@ position = Vector2(48, 232)
 
 [node name="Floor5" parent="Floor" instance=ExtResource("3_cvrwf")]
 position = Vector2(376, 96)
+
+[node name="Blackhole" type="Node2D" parent="." groups=["player"]]
+position = Vector2(-304, 1024)
+script = ExtResource("5_y7cpi")
+speed = 105
+
+[node name="Main_one" parent="Blackhole" groups=["player"] instance=ExtResource("5_oait6")]
+position = Vector2(200, 8)
+
+[node name="CollisionShape2D" parent="Blackhole/Main_one" index="0"]
+position = Vector2(272, -124)
+shape = SubResource("RectangleShape2D_y7cpi")
+
+[node name="Sprite2D" parent="Blackhole/Main_one" index="1"]
+position = Vector2(-280, 10)
+scale = Vector2(1, 2)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(-104, 10)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(-24, 10)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(48, 10)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(160, 10)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(256, 10)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(344, 10)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(440, 10)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(544, 10)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(632, 10)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(720, 10)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D12" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(776, 10)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D13" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(864, 10)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D14" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(-230, 10)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D15" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(-150, 10)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D16" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(-78, 10)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[connection signal="body_entered" from="Blackhole/Main_one" to="Blackhole" method="_on_main_one_body_entered"]
+
+[editable path="Blackhole/Main_one"]
