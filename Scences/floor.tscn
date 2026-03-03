@@ -1,11 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgxec3y7ksfli"]
+[gd_scene load_steps=5 format=3 uid="uid://dgxec3y7ksfli"]
 
 [ext_resource type="Texture2D" uid="uid://l3cydb8lm5ic" path="res://Assets/Background/pixellab-a-plain-surface-like-a-stick-w-1772425192220.png" id="1_fndhk"]
+[ext_resource type="Script" uid="uid://dpsqfa0hfkvmc" path="res://scripts/floor.gd" id="1_yxeu5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fndhk"]
 size = Vector2(225, 42)
 
-[node name="StaticBody2D" type="StaticBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yxeu5"]
+size = Vector2(224, 20)
+
+[node name="StaticBody2D" type="StaticBody2D" groups=["floor"]]
+script = ExtResource("1_yxeu5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_fndhk")
@@ -13,3 +18,9 @@ texture = ExtResource("1_fndhk")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 32)
 shape = SubResource("RectangleShape2D_fndhk")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 24)
+shape = SubResource("RectangleShape2D_yxeu5")

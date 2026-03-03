@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const SPEED = 400.0
-const JUMP_VELOCITY = -500.0
+const JUMP_VELOCITY = -800
 @onready var sprite = $AnimatedSprite2D
 #getting the gravity
 var gravity = 1000
@@ -36,3 +36,9 @@ func _physics_process(delta):
 			sprite.play("idle")
 	# 4. Final step: Apply the movement
 	move_and_slide()
+
+
+func body_touch_by_floor(body: Node2D) -> void:
+	if body.is_in_group("floor"):
+		velocity.y= 300
+	pass # Replace with function body.
