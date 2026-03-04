@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bfclw846vf0mv"]
+[gd_scene load_steps=11 format=3 uid="uid://bfclw846vf0mv"]
 
 [ext_resource type="PackedScene" uid="uid://dyg5a1qw6lbvt" path="res://Scences/player.tscn" id="1_7h65x"]
 [ext_resource type="Script" uid="uid://dggpj5u5q12sl" path="res://scripts/game_manager.gd" id="1_erdem"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bw08ihafslfft" path="res://Scences/black_hole.tscn" id="5_oait6"]
 [ext_resource type="Script" uid="uid://deilpkf15n3gj" path="res://scripts/blackhole.gd" id="5_y7cpi"]
 [ext_resource type="Texture2D" uid="uid://bos06wm1ahc4h" path="res://Assets/Background/2557-removebg-preview.png" id="7_4eofb"]
+[ext_resource type="Script" uid="uid://d2bjub1waubj" path="res://scripts/spwanner.gd" id="8_144yx"]
+[ext_resource type="AudioStream" uid="uid://dlqxt1otbjalh" path="res://Assets/Music/background_music.mp3" id="9_n5h5e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y7cpi"]
 size = Vector2(1248, 408)
@@ -15,12 +17,12 @@ size = Vector2(1248, 408)
 script = ExtResource("1_erdem")
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
-repeat_size = Vector2(0, 600)
-repeat_times = 2
+repeat_size = Vector2(0, 500)
+repeat_times = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
-position = Vector2(199.99998, 152)
-scale = Vector2(2.34375, 1.265625)
+position = Vector2(192, 8.000008)
+scale = Vector2(2.2070313, 3.4108665)
 texture = ExtResource("4_erdem")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_7h65x")]
@@ -30,21 +32,8 @@ scale = Vector2(1.5, 1.5)
 
 [node name="Floor" type="Node2D" parent="."]
 
-[node name="Floor" parent="Floor" instance=ExtResource("3_cvrwf")]
-position = Vector2(104, 560)
-
-[node name="Floor2" parent="Floor" instance=ExtResource("3_cvrwf")]
-position = Vector2(296, 800)
-
-[node name="Floor3" parent="Floor" instance=ExtResource("3_cvrwf")]
-modulate = Color(0.4445588, 0.12738895, 0.058477618, 1)
-position = Vector2(288, 392)
-
-[node name="Floor4" parent="Floor" instance=ExtResource("3_cvrwf")]
-position = Vector2(48, 232)
-
-[node name="Floor5" parent="Floor" instance=ExtResource("3_cvrwf")]
-position = Vector2(376, 96)
+[node name="StaticBody2D" parent="Floor" instance=ExtResource("3_cvrwf")]
+position = Vector2(112, 560)
 
 [node name="Blackhole" type="Node2D" parent="." groups=["player"]]
 position = Vector2(-304, 1024)
@@ -136,6 +125,23 @@ texture = ExtResource("7_4eofb")
 position = Vector2(-78, 10)
 scale = Vector2(1, 2)
 texture = ExtResource("7_4eofb")
+
+[node name="Spwanner" type="Marker2D" parent="."]
+position = Vector2(80, 144)
+script = ExtResource("8_144yx")
+log_scene = ExtResource("3_cvrwf")
+
+[node name="Music_manager" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_n5h5e")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Scorelabel" type="Label" parent="CanvasLayer"]
+offset_left = 392.0
+offset_top = 16.0
+offset_right = 493.0
+offset_bottom = 56.0
+text = "international"
 
 [connection signal="body_entered" from="Blackhole/Main_one" to="Blackhole" method="_on_main_one_body_entered"]
 
