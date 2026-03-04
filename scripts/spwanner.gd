@@ -25,7 +25,7 @@ func spawn_log():
 	
 	# Random Modulation (The color tint)
 	new_log.modulate = Color(randf(), randf(), randf(), 1.0)
-	if randf() < 0.2: 
+	if randf() < 0.5: 
 		new_log.is_fake = true
 		# Maybe give fake logs a specific tint so the player can guess?
 		new_log.modulate = Color(1, 0, 0, 1) # Bright Red warning

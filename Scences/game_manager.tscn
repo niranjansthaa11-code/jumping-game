@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://dyg5a1qw6lbvt" path="res://Scences/player.tscn" id="1_7h65x"]
 [ext_resource type="Script" uid="uid://dggpj5u5q12sl" path="res://scripts/game_manager.gd" id="1_erdem"]
+[ext_resource type="Texture2D" uid="uid://ciwpbaeir8q4l" path="res://Assets/Background/againbg.png" id="2_p2wod"]
 [ext_resource type="PackedScene" uid="uid://dgxec3y7ksfli" path="res://Scences/floor.tscn" id="3_cvrwf"]
-[ext_resource type="Texture2D" uid="uid://bbv5lgtqe6aon" path="res://Assets/Background/Purple_Nebula_03-512x512.png" id="4_erdem"]
 [ext_resource type="AudioStream" uid="uid://dodxrnpcbnp2b" path="res://Assets/Music/dead.mp3" id="5_ku2p1"]
 [ext_resource type="PackedScene" uid="uid://bw08ihafslfft" path="res://Scences/black_hole.tscn" id="5_oait6"]
 [ext_resource type="Script" uid="uid://deilpkf15n3gj" path="res://scripts/blackhole.gd" id="5_y7cpi"]
@@ -11,10 +11,10 @@
 [ext_resource type="Script" uid="uid://d2bjub1waubj" path="res://scripts/spwanner.gd" id="8_144yx"]
 [ext_resource type="AudioStream" uid="uid://dlqxt1otbjalh" path="res://Assets/Music/background_music.mp3" id="9_n5h5e"]
 [ext_resource type="FontFile" uid="uid://dvh0cmmo4y4wl" path="res://Assets/Fonts/GamepauseddemoRegular-RpmY6.otf" id="10_f18hu"]
-[ext_resource type="Texture2D" uid="uid://kfo1p0y6cko2" path="res://Assets/Background/df-removebg-preview.png" id="10_p2wod"]
+[ext_resource type="Texture2D" uid="uid://c8opuqnbkg3vt" path="res://Assets/Background/07dcf478-207e-4272-a999-f5a807614d22.jpg" id="10_p2wod"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y7cpi"]
-size = Vector2(1248, 408)
+size = Vector2(2016, 408)
 
 [sub_resource type="Curve" id="Curve_ku2p1"]
 _data = [Vector2(0.03374234, 0.9552573), 0.0, 0.0, 0, 0, Vector2(0.9539877, 0), 0.0, 0.0, 0, 0]
@@ -51,13 +51,12 @@ shadow_color = Color(0, 0, 0, 0.6392157)
 script = ExtResource("1_erdem")
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
-repeat_size = Vector2(0, 500)
+repeat_size = Vector2(0, 1020)
 repeat_times = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
-position = Vector2(192, 8.000008)
-scale = Vector2(2.2070313, 3.4108665)
-texture = ExtResource("4_erdem")
+position = Vector2(24, 0)
+texture = ExtResource("2_p2wod")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_7h65x")]
 texture_filter = 1
@@ -83,7 +82,7 @@ script = ExtResource("5_y7cpi")
 position = Vector2(200, 8)
 
 [node name="CollisionShape2D" parent="Blackhole/Main_one" index="0"]
-position = Vector2(272, -124)
+position = Vector2(216, -124)
 shape = SubResource("RectangleShape2D_y7cpi")
 
 [node name="Sprite2D" parent="Blackhole/Main_one" index="1"]
@@ -169,10 +168,160 @@ texture = ExtResource("7_4eofb")
 stream = ExtResource("5_ku2p1")
 volume_db = 16.948
 
+[node name="Sprite2D17" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(-608, 4)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D18" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(-528, 4)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D19" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(-456, 4)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D20" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(-344, 4)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D21" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(-248, 4)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D22" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(-160, 4)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D23" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(-64, 4)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D24" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(40, 4)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D25" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(128, 4)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D26" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(216, 4)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D27" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(272, 4)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D28" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(360, 4)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D29" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(-734, 4)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D30" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(-654, 4)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D31" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(-582, 4)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D32" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(224, -20)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D33" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(304, -20)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D34" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(376, -20)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D35" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(488, -20)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D36" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(584, -20)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D37" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(672, -20)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D38" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(768, -20)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D39" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(872, -20)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D40" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(960, -20)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D41" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(1048, -20)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D42" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(1104, -20)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D43" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(1192, -20)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D44" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(98, -20)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D45" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(178, -20)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
+[node name="Sprite2D46" type="Sprite2D" parent="Blackhole/Main_one"]
+position = Vector2(250, -20)
+scale = Vector2(1, 2)
+texture = ExtResource("7_4eofb")
+
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Blackhole"]
-position = Vector2(16.000061, -432)
+position = Vector2(2656, -112)
 scale = Vector2(1e-05, 1e-05)
-amount = 50
+amount = 200
 texture = ExtResource("10_p2wod")
 process_material = SubResource("ParticleProcessMaterial_ku2p1")
 

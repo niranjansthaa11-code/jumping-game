@@ -287,6 +287,8 @@ shape = SubResource("CapsuleShape2D_fdd1h")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(8, -8)
+limit_left = -480
+limit_right = 500
 
 [node name="Area2D" type="Area2D" parent="."]
 
