@@ -5,6 +5,8 @@ const JUMP_VELOCITY = -800
 @onready var sprite = $AnimatedSprite2D
 #getting the gravity
 var gravity = 1000
+var score = 0
+@onready var score_label = $"../CanvasLayer/ScoreLabel"
 
 func _physics_process(delta):
 	# adding gravity for the sprite
@@ -36,6 +38,15 @@ func _physics_process(delta):
 			sprite.play("idle")
 	# 4. Final step: Apply the movement
 	move_and_slide()
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		
+		if collider.has_method("get_score") and velocity.y >= 0:
+			var points_to_add = collider.get_score()
+			if points_to_add > 0:
+				score += points_to_add
+				score_label.text = "  Score: " + str(score)
 
 
 func body_touch_by_floor(body: Node2D) -> void:
