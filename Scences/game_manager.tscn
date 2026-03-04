@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://bfclw846vf0mv"]
+[gd_scene load_steps=14 format=3 uid="uid://bfclw846vf0mv"]
 
 [ext_resource type="PackedScene" uid="uid://dyg5a1qw6lbvt" path="res://Scences/player.tscn" id="1_7h65x"]
 [ext_resource type="Script" uid="uid://dggpj5u5q12sl" path="res://scripts/game_manager.gd" id="1_erdem"]
 [ext_resource type="PackedScene" uid="uid://dgxec3y7ksfli" path="res://Scences/floor.tscn" id="3_cvrwf"]
 [ext_resource type="Texture2D" uid="uid://bbv5lgtqe6aon" path="res://Assets/Background/Purple_Nebula_03-512x512.png" id="4_erdem"]
+[ext_resource type="AudioStream" uid="uid://dodxrnpcbnp2b" path="res://Assets/Music/dead.mp3" id="5_ku2p1"]
 [ext_resource type="PackedScene" uid="uid://bw08ihafslfft" path="res://Scences/black_hole.tscn" id="5_oait6"]
 [ext_resource type="Script" uid="uid://deilpkf15n3gj" path="res://scripts/blackhole.gd" id="5_y7cpi"]
 [ext_resource type="Texture2D" uid="uid://bos06wm1ahc4h" path="res://Assets/Background/2557-removebg-preview.png" id="7_4eofb"]
@@ -45,10 +46,9 @@ scale = Vector2(1.5, 1.5)
 position = Vector2(112, 560)
 
 [node name="Blackhole" type="Node2D" parent="." groups=["player"]]
+z_index = 5
 position = Vector2(-304, 1024)
 script = ExtResource("5_y7cpi")
-speed = 105
-acceleration = 10
 
 [node name="Main_one" parent="Blackhole" groups=["player"] instance=ExtResource("5_oait6")]
 position = Vector2(200, 8)
@@ -135,6 +135,9 @@ texture = ExtResource("7_4eofb")
 position = Vector2(-78, 10)
 scale = Vector2(1, 2)
 texture = ExtResource("7_4eofb")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Blackhole/Main_one"]
+stream = ExtResource("5_ku2p1")
 
 [node name="Spwanner" type="Marker2D" parent="."]
 position = Vector2(80, 144)
