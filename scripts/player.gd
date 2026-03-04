@@ -3,6 +3,7 @@ extends CharacterBody2D
 const SPEED = 400.0
 const JUMP_VELOCITY = -800
 @onready var sprite = $AnimatedSprite2D
+@onready var jump_sound =$Jumping
 #getting the gravity
 var gravity = 1000
 var score = 0
@@ -16,6 +17,7 @@ func _physics_process(delta):
 
 	# Making the thing jump 
 	if Input.is_action_just_pressed("jump") and is_on_floor():
+		jump_sound.play()
 		velocity.y = JUMP_VELOCITY
 
 	# this gets the direction as input as the -1,0,1 resp..

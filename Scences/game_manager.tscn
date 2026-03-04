@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bfclw846vf0mv"]
+[gd_scene load_steps=18 format=3 uid="uid://bfclw846vf0mv"]
 
 [ext_resource type="PackedScene" uid="uid://dyg5a1qw6lbvt" path="res://Scences/player.tscn" id="1_7h65x"]
 [ext_resource type="Script" uid="uid://dggpj5u5q12sl" path="res://scripts/game_manager.gd" id="1_erdem"]
@@ -11,9 +11,33 @@
 [ext_resource type="Script" uid="uid://d2bjub1waubj" path="res://scripts/spwanner.gd" id="8_144yx"]
 [ext_resource type="AudioStream" uid="uid://dlqxt1otbjalh" path="res://Assets/Music/background_music.mp3" id="9_n5h5e"]
 [ext_resource type="FontFile" uid="uid://dvh0cmmo4y4wl" path="res://Assets/Fonts/GamepauseddemoRegular-RpmY6.otf" id="10_f18hu"]
+[ext_resource type="Texture2D" uid="uid://kfo1p0y6cko2" path="res://Assets/Background/df-removebg-preview.png" id="10_p2wod"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y7cpi"]
 size = Vector2(1248, 408)
+
+[sub_resource type="Curve" id="Curve_ku2p1"]
+_data = [Vector2(0.03374234, 0.9552573), 0.0, 0.0, 0, 0, Vector2(0.9539877, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_p2wod"]
+curve = SubResource("Curve_ku2p1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ku2p1"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 0.0
+emission_ring_radius = 200.0
+emission_ring_inner_radius = 150.0
+emission_ring_cone_angle = 90.0
+orbit_velocity_min = 0.5000001
+orbit_velocity_max = 0.5000001
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -200.0
+radial_accel_max = -200.0
+scale_curve = SubResource("CurveTexture_p2wod")
+color = Color(0.0040020705, 0.0026240114, 0.00064859155, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n5h5e"]
 bg_color = Color(0.4392157, 0.16078432, 0.3882353, 1)
@@ -40,14 +64,19 @@ texture_filter = 1
 position = Vector2(80, 520)
 scale = Vector2(1.5, 1.5)
 
+[node name="Music_manager" type="AudioStreamPlayer" parent="." groups=["global_music"]]
+unique_name_in_owner = true
+stream = ExtResource("9_n5h5e")
+
 [node name="Floor" type="Node2D" parent="."]
 
 [node name="StaticBody2D" parent="Floor" instance=ExtResource("3_cvrwf")]
 position = Vector2(112, 560)
 
-[node name="Blackhole" type="Node2D" parent="." groups=["player"]]
+[node name="Blackhole" type="Node2D" parent="." groups=["global_music", "player"]]
 z_index = 5
-position = Vector2(-304, 1024)
+position = Vector2(-184, 1032)
+scale = Vector2(0.5, 1)
 script = ExtResource("5_y7cpi")
 
 [node name="Main_one" parent="Blackhole" groups=["player"] instance=ExtResource("5_oait6")]
@@ -138,14 +167,19 @@ texture = ExtResource("7_4eofb")
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Blackhole/Main_one"]
 stream = ExtResource("5_ku2p1")
+volume_db = 16.948
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Blackhole"]
+position = Vector2(16.000061, -432)
+scale = Vector2(1e-05, 1e-05)
+amount = 50
+texture = ExtResource("10_p2wod")
+process_material = SubResource("ParticleProcessMaterial_ku2p1")
 
 [node name="Spwanner" type="Marker2D" parent="."]
 position = Vector2(80, 144)
 script = ExtResource("8_144yx")
 log_scene = ExtResource("3_cvrwf")
-
-[node name="Music_manager" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_n5h5e")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 3
@@ -163,4 +197,5 @@ horizontal_alignment = 1
 
 [connection signal="body_entered" from="Blackhole/Main_one" to="Blackhole" method="_on_main_one_body_entered"]
 
+[editable path="CharacterBody2D"]
 [editable path="Blackhole/Main_one"]
