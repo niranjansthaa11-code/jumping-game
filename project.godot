@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Jumping_Game"
-run/main_scene="res://Scences/game_manager.tscn"
+run/main_scene="uid://x4nvco8r1efv"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+MainMenu="res://Scences/main_menu.tscn"
 
 [display]
 

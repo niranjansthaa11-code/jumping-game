@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://x4nvco8r1efv"]
+
+[ext_resource type="Script" uid="uid://batstqjwp2uq5" path="res://scripts/main_menu.gd" id="1_ioqad"]
+[ext_resource type="Texture2D" uid="uid://dwti7vp714dx2" path="res://Assets/Background/main.png" id="1_yxntw"]
+[ext_resource type="FontFile" uid="uid://dvh0cmmo4y4wl" path="res://Assets/Fonts/GamepauseddemoRegular-RpmY6.otf" id="2_ioqad"]
+[ext_resource type="FontFile" uid="uid://bbiyqvmakw2x5" path="res://Assets/Fonts/SuperMaples-2vR2w.ttf" id="3_rxfvr"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n0ibi"]
+texture = ExtResource("1_yxntw")
+modulate_color = Color(0.7137255, 0.7137255, 0.7137255, 1)
+
+[node name="Main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ioqad")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_n0ibi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.5
+offset_top = -46.5
+offset_right = 66.5
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_ioqad")
+theme_override_font_sizes/font_size = 40
+text = "Don't Look Down"
+
+[node name="start_button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94509804, 0.76862746, 0.05882353, 1)
+theme_override_fonts/font = ExtResource("3_rxfvr")
+theme_override_font_sizes/font_size = 30
+text = "Start "
+
+[node name="exit_button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94509804, 0.76862746, 0.05882353, 1)
+theme_override_fonts/font = ExtResource("3_rxfvr")
+theme_override_font_sizes/font_size = 30
+text = "Exit"
+
+[connection signal="pressed" from="VBoxContainer/start_button" to="." method="_on_start_button_pressed"]
