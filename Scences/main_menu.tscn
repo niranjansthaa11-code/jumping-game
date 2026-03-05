@@ -62,8 +62,8 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_n0ibi")
 [node name="BackgroundCheckboxMenu" type="Sprite2D" parent="."]
 modulate = Color(0.17121077, 0.10148462, 0.38761753, 1)
 texture_filter = 1
-position = Vector2(244, 351.99997)
-scale = Vector2(0.3230047, 0.10000001)
+position = Vector2(244, 357.49997)
+scale = Vector2(0.3230047, 0.122916736)
 texture = ExtResource("3_bduix")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -91,6 +91,7 @@ text = "Don't Look Down"
 [node name="start_button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.94509804, 0.76862746, 0.05882353, 1)
+theme_override_colors/font_hover_color = Color(0.94509804, 0.76862746, 0.05882353, 0.73333335)
 theme_override_fonts/font = ExtResource("3_rxfvr")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_rxfvr")
@@ -100,19 +101,12 @@ text = "Start "
 [node name="exit_button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.94509804, 0.76862746, 0.05882353, 1)
+theme_override_colors/font_hover_color = Color(0.94509804, 0.76862746, 0.05882353, 0.73333335)
 theme_override_fonts/font = ExtResource("3_rxfvr")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_bduix")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ssbjo")
 text = "Exit"
-
-[node name="start" type="TextureButton" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="VBoxContainer/start"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
 
 [node name="IconHeart" type="Sprite2D" parent="VBoxContainer"]
 modulate = Color(0.63529414, 0, 0.63529414, 1)
@@ -155,3 +149,4 @@ scale = Vector2(0.08984375, 0.08984375)
 texture = ExtResource("7_ssbjo")
 
 [connection signal="pressed" from="VBoxContainer/start_button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/exit_button" to="." method="_on_exit_button_pressed"]

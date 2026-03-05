@@ -1,13 +1,52 @@
-[gd_scene load_steps=6 format=3 uid="uid://b80y1fgmfllny"]
+[gd_scene load_steps=15 format=3 uid="uid://b80y1fgmfllny"]
 
 [ext_resource type="Texture2D" uid="uid://dwti7vp714dx2" path="res://Assets/Background/main.png" id="1_dtv8f"]
 [ext_resource type="Script" uid="uid://ds533sukh17px" path="res://Scences/exit_menu.gd" id="1_j7rsi"]
 [ext_resource type="FontFile" uid="uid://dvh0cmmo4y4wl" path="res://Assets/Fonts/GamepauseddemoRegular-RpmY6.otf" id="2_j7rsi"]
+[ext_resource type="Texture2D" uid="uid://chxg8y4dxjnf8" path="res://Assets/texture_buttons/PNGs/Backgrounds/BackgroundCheckboxMenu.png" id="3_mtydg"]
 [ext_resource type="FontFile" uid="uid://bbiyqvmakw2x5" path="res://Assets/Fonts/SuperMaples-2vR2w.ttf" id="3_sdrn5"]
+[ext_resource type="Texture2D" uid="uid://c2d2f4hx3mnf2" path="res://Assets/texture_buttons/PNGs/Icons/GameIcons/IconNext.png" id="6_0xqvm"]
+[ext_resource type="Texture2D" uid="uid://cnwtnuk8cvam1" path="res://Assets/texture_buttons/PNGs/Icons/GameIcons/IconSettings.png" id="7_sxmb4"]
+[ext_resource type="Texture2D" uid="uid://bwob1gxfow6sb" path="res://Assets/texture_buttons/PNGs/Icons/GameIcons/IconArrow.png" id="8_5px0f"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mtydg"]
 texture = ExtResource("1_dtv8f")
 modulate_color = Color(0.7137255, 0.7137255, 0.7137255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j7rsi"]
+bg_color = Color(0.17254902, 0.24313726, 0.3137255, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sdrn5"]
+bg_color = Color(0.17254902, 0.24313726, 0.3137255, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mtydg"]
+bg_color = Color(0.12156863, 0.1764706, 0.23137255, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k50qp"]
+bg_color = Color(0.17254902, 0.24313726, 0.3137255, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0xqvm"]
+bg_color = Color(0.17254902, 0.24313726, 0.3137255, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 
 [node name="Exit_menu" type="Control"]
 layout_mode = 3
@@ -26,6 +65,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_mtydg")
+
+[node name="BackgroundCheckboxMenu" type="Sprite2D" parent="."]
+modulate = Color(0.17121077, 0.10148462, 0.38761753, 1)
+texture_filter = 1
+position = Vector2(240, 336)
+scale = Vector2(0.3230047, 0.10000001)
+texture = ExtResource("3_mtydg")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -49,19 +95,14 @@ theme_override_fonts/font = ExtResource("2_j7rsi")
 theme_override_font_sizes/font_size = 40
 text = "Don't Look Down"
 
-[node name="You died" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.45377582, 0.09988681, 0.060029045, 1)
-theme_override_fonts/font = ExtResource("2_j7rsi")
-theme_override_font_sizes/font_size = 40
-text = "You died !!"
-horizontal_alignment = 1
-
 [node name="Main_menu" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.94509804, 0.76862746, 0.05882353, 1)
 theme_override_fonts/font = ExtResource("3_sdrn5")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_j7rsi")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_sdrn5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mtydg")
 text = "Main_menu"
 
 [node name="Restart" type="Button" parent="VBoxContainer"]
@@ -69,6 +110,9 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.94509804, 0.76862746, 0.05882353, 1)
 theme_override_fonts/font = ExtResource("3_sdrn5")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_k50qp")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_sdrn5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mtydg")
 text = "Restart"
 
 [node name="exit_button" type="Button" parent="VBoxContainer"]
@@ -76,7 +120,46 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.94509804, 0.76862746, 0.05882353, 1)
 theme_override_fonts/font = ExtResource("3_sdrn5")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_0xqvm")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_sdrn5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mtydg")
 text = "Exit"
+
+[node name="IconNext" type="Sprite2D" parent="."]
+modulate = Color(0.14901961, 0.7529412, 1, 1)
+position = Vector2(348, 431.99997)
+scale = Vector2(0.08593746, 0.08593746)
+texture = ExtResource("6_0xqvm")
+
+[node name="IconNext2" type="Sprite2D" parent="."]
+modulate = Color(0.14901961, 0.7529412, 1, 1)
+position = Vector2(138, 436.00003)
+rotation = 3.137357
+scale = Vector2(0.08648075, 0.08648075)
+texture = ExtResource("6_0xqvm")
+
+[node name="IconSettings" type="Sprite2D" parent="."]
+position = Vector2(144.00002, 384.00003)
+scale = Vector2(0.09374999, 0.09374999)
+texture = ExtResource("7_sxmb4")
+
+[node name="IconSettings2" type="Sprite2D" parent="."]
+position = Vector2(344.00003, 384)
+scale = Vector2(0.09374999, 0.09374999)
+texture = ExtResource("7_sxmb4")
+
+[node name="IconArrow" type="Sprite2D" parent="."]
+modulate = Color(1, 0.1882353, 0, 1)
+position = Vector2(150, 486)
+scale = Vector2(0.117187515, 0.117187515)
+texture = ExtResource("8_5px0f")
+
+[node name="IconArrow2" type="Sprite2D" parent="."]
+modulate = Color(1, 0.1882353, 0, 1)
+position = Vector2(353.00003, 481)
+rotation = 3.1369934
+scale = Vector2(0.117187515, 0.117187515)
+texture = ExtResource("8_5px0f")
 
 [connection signal="pressed" from="VBoxContainer/Main_menu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="VBoxContainer/Restart" to="." method="_on_restart_pressed"]
