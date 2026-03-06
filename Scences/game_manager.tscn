@@ -344,6 +344,12 @@ theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_n5h5e")
 horizontal_alignment = 1
 
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 416.0
+offset_right = 456.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.8156863, 0, 0, 1)
+
 [connection signal="body_entered" from="Blackhole/Main_one" to="Blackhole" method="_on_main_one_body_entered"]
 
 [editable path="CharacterBody2D"]

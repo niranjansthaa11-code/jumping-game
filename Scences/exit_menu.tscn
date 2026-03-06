@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b80y1fgmfllny"]
+[gd_scene load_steps=17 format=3 uid="uid://b80y1fgmfllny"]
 
 [ext_resource type="Texture2D" uid="uid://dwti7vp714dx2" path="res://Assets/Background/main.png" id="1_dtv8f"]
 [ext_resource type="Script" uid="uid://ds533sukh17px" path="res://Scences/exit_menu.gd" id="1_j7rsi"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c2d2f4hx3mnf2" path="res://Assets/texture_buttons/PNGs/Icons/GameIcons/IconNext.png" id="6_0xqvm"]
 [ext_resource type="Texture2D" uid="uid://cnwtnuk8cvam1" path="res://Assets/texture_buttons/PNGs/Icons/GameIcons/IconSettings.png" id="7_sxmb4"]
 [ext_resource type="Texture2D" uid="uid://bwob1gxfow6sb" path="res://Assets/texture_buttons/PNGs/Icons/GameIcons/IconArrow.png" id="8_5px0f"]
+[ext_resource type="Texture2D" uid="uid://b37ek74jsyjrb" path="res://Assets/texture_buttons/PNGs/Icons/GameIcons/IconCoin.png" id="9_sxmb4"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mtydg"]
 texture = ExtResource("1_dtv8f")
@@ -47,6 +48,14 @@ corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sxmb4"]
+bg_color = Color(0.8235294, 0.52156866, 0.20392157, 0.8980392)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0.7501338, 0.2153283, 0.10804891, 1)
 
 [node name="Exit_menu" type="Control"]
 layout_mode = 3
@@ -160,6 +169,49 @@ position = Vector2(353.00003, 481)
 rotation = 3.1369934
 scale = Vector2(0.117187515, 0.117187515)
 texture = ExtResource("8_5px0f")
+
+[node name="Final_score" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.514
+anchor_top = 0.363
+anchor_right = 0.514
+anchor_bottom = 0.363
+offset_left = -20.0
+offset_top = -11.399994
+offset_right = 20.0
+offset_bottom = 11.600006
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.7529412, 0.02745098, 0.02745098, 1)
+theme_override_fonts/font = ExtResource("3_sdrn5")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_sxmb4")
+text = "dfdffdfdfdfdfdfdfdfdf"
+
+[node name="Best_score" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.514
+anchor_top = 0.363
+anchor_right = 0.514
+anchor_bottom = 0.363
+offset_left = -140.0
+offset_top = -63.399994
+offset_right = 107.0
+offset_bottom = -25.399994
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.7529412, 0.02745098, 0.02745098, 1)
+theme_override_fonts/font = ExtResource("3_sdrn5")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_sxmb4")
+text = "a"
+
+[node name="IconCoin" type="Sprite2D" parent="."]
+position = Vector2(329.00003, 246.00002)
+scale = Vector2(0.14355469, 0.14355469)
+texture = ExtResource("9_sxmb4")
 
 [connection signal="pressed" from="VBoxContainer/Main_menu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="VBoxContainer/Restart" to="." method="_on_restart_pressed"]

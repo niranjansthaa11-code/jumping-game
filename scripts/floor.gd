@@ -18,7 +18,7 @@ func start_disappearing():
 	# 1. Turn it dark immediately to warn the player
 	modulate = Color(0.1, 0.1, 0.1, 1.0) 
 	
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.3).timeout
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color(0, 0, 0, 0), 0.5)
 	tween.finished.connect(queue_free)

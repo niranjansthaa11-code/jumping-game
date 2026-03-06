@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dyg5a1qw6lbvt"]
+[gd_scene load_steps=45 format=3 uid="uid://dyg5a1qw6lbvt"]
 
 [ext_resource type="Script" uid="uid://cjoenllmiu6pn" path="res://scripts/player.gd" id="1_fdd1h"]
 [ext_resource type="Texture2D" uid="uid://bpnvj431ohjwq" path="res://Assets/Sprites/spr_player_run_strip9.png" id="1_uo0j8"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dht4ny4mgdxho" path="res://Assets/Sprites/spr_player_idle_strip5.png" id="2_njme2"]
 [ext_resource type="Texture2D" uid="uid://c6p52kmafya8t" path="res://Assets/Sprites/spr_player_jump_strip12.png" id="3_5xvqy"]
 [ext_resource type="AudioStream" uid="uid://bkis2u1vam57h" path="res://Assets/Music/jump_2.mp3" id="5_yfn50"]
+[ext_resource type="AudioStream" uid="uid://gvmykejy3x73" path="res://Assets/Music/celebration.mp3" id="7_f0j0c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yq6qu"]
 atlas = ExtResource("2_26jep")
@@ -299,5 +300,10 @@ shape = SubResource("RectangleShape2D_5xvqy")
 [node name="Jumping" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_yfn50")
 volume_db = 5.0
+
+[node name="High_score" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("7_f0j0c")
+volume_db = 0.05
 
 [connection signal="body_entered" from="Area2D" to="." method="body_touch_by_floor"]
