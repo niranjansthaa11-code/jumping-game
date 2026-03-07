@@ -63,7 +63,5 @@ func _physics_process(delta):
 					score_label.text = "Score: " + str(score)
 
 func die(): 
-	# Send the current score to the manager
-	# This function handles updating 'last_run_score' and checking the record
 	ScoreManager.update_high_score(score)
 	get_tree().change_scene_to_file("res://Scences/exit_menu.tscn")

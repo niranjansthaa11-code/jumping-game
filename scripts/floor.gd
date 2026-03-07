@@ -1,5 +1,6 @@
 extends StaticBody2D
 @onready var touch =$opps
+@onready var coin =$AnimatedSprite2D
 
 var was_touched = false 
 var is_fake = false  #
@@ -28,3 +29,10 @@ func _process(_delta):
 	var cam = get_viewport().get_camera_2d()
 	if cam and global_position.y > cam.global_position.y + 1000:
 		queue_free()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	coin.stop()
+	coin.hide()
+	
+	pass # Replace with function body.

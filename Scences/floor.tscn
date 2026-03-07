@@ -1,14 +1,42 @@
-[gd_scene load_steps=6 format=3 uid="uid://dgxec3y7ksfli"]
+[gd_scene load_steps=12 format=3 uid="uid://dgxec3y7ksfli"]
 
 [ext_resource type="Texture2D" uid="uid://l3cydb8lm5ic" path="res://Assets/Background/pixellab-a-plain-surface-like-a-stick-w-1772425192220.png" id="1_fndhk"]
 [ext_resource type="Script" uid="uid://dpsqfa0hfkvmc" path="res://scripts/floor.gd" id="1_yxeu5"]
 [ext_resource type="AudioStream" uid="uid://c0ux4o04m0daq" path="res://Assets/Music/Opps.mp3" id="3_d3gi6"]
+[ext_resource type="Texture2D" uid="uid://dr2krye4v0kot" path="res://Assets/coins/1.png" id="4_qnmrb"]
+[ext_resource type="Texture2D" uid="uid://dp3klr2ffa6qt" path="res://Assets/coins/2.png" id="5_et5ol"]
+[ext_resource type="Texture2D" uid="uid://byn2gitwbl60b" path="res://Assets/coins/3.png" id="6_hbvb5"]
+[ext_resource type="Texture2D" uid="uid://xncboseuvs8y" path="res://Assets/coins/4.png" id="7_n8fyj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fndhk"]
 size = Vector2(224.5, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yxeu5"]
 size = Vector2(224, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t4anx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_qnmrb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_et5ol")
+}, {
+"duration": 2.0,
+"texture": ExtResource("6_hbvb5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_n8fyj")
+}],
+"loop": true,
+"name": &"coin",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qnmrb"]
+radius = 32.0
+height = 96.0
 
 [node name="StaticBody2D" type="StaticBody2D" groups=["floor"]]
 script = ExtResource("1_yxeu5")
@@ -29,3 +57,18 @@ shape = SubResource("RectangleShape2D_yxeu5")
 [node name="opps" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_d3gi6")
 volume_db = 12.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-8, -16)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_t4anx")
+animation = &"coin"
+autoplay = "coin"
+frame_progress = 0.930793
+
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
+shape = SubResource("CapsuleShape2D_qnmrb")
+
+[connection signal="body_entered" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
