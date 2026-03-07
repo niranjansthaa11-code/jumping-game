@@ -48,4 +48,4 @@ func _on_main_one_body_entered(body: Node2D) -> void:
 		tween.parallel().tween_property(body, "modulate:a", 0.0, 0.8) 
 		#waitting time 
 		await get_tree().create_timer(1.2).timeout
-		get_tree().change_scene_to_file("res://Scences/exit_menu.tscn")
+		body.die()

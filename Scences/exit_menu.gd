@@ -3,7 +3,7 @@ extends Control
 @onready var best_score_label = $Best_score
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	final_score_display.text = "Your Final Climb Score is : " + str(ScoreManager.total_score)
+	final_score_display.text = "Your Final Climb Score is : " + str(ScoreManager.last_run_score)
 	best_score_label.text = "BEST EVER: " + str(ScoreManager.high_score)
 	pass # Replace with function body.
 
