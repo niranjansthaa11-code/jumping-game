@@ -1,7 +1,7 @@
 # 🧗‍♂️ Don't Look Down
 
-A fast-paced vertical platformer built with **Godot 4.x**. </br>
-Test your reflexes </br>
+A vertical fast pace speed runt type of game developed using  **Godot 4.x**. </br>
+Test your Fingering power 😭 </br>
 THe goal is to simply : climb as high as you can, and try not to fall into the void.
 
 
