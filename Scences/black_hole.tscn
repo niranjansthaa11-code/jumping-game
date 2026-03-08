@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bw08ihafslfft"]
+[gd_scene format=3 uid="uid://bw08ihafslfft"]
 
 [ext_resource type="Texture2D" uid="uid://bos06wm1ahc4h" path="res://Assets/Background/2557-removebg-preview.png" id="1_sdvpc"]
 [ext_resource type="AudioStream" uid="uid://dodxrnpcbnp2b" path="res://Assets/Music/dead.mp3" id="2_muwr7"]
@@ -6,13 +6,13 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_muwr7"]
 radius = 112.0
 
-[node name="Area2D" type="Area2D"]
+[node name="Area2D" type="Area2D" unique_id=593518899]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1253360501]
 shape = SubResource("CircleShape2D_muwr7")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1966571852]
 texture = ExtResource("1_sdvpc")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2099282891]
 stream = ExtResource("2_muwr7")

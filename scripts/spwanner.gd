@@ -22,16 +22,14 @@ func spawn_log():
 	var new_log = log_scene.instantiate()
 	var random_x = randf_range(-200, 200)
 	new_log.global_position = Vector2(random_x, next_spawn_y)
+	#creating the random colour 
+	var random_color = Color(randf(), randf(), randf(), 1.0)
 	
-	# Random Modulation (The color tint)
-	new_log.modulate = Color(randf(), randf(), randf(), 1.0)
+	# i am trying to make the coin with the original colour 
+	if new_log.has_node("Sprite2D"):
+		new_log.get_node("Sprite2D").self_modulate = random_color
 	if randf() < 0.5: 
 		new_log.is_fake = true
-		# Maybe give fake logs a specific tint so the player can guess
-	else:
-		# Normal random color for real logs
-		new_log.modulate = Color(randf(), randf(), randf(), 1.0)
 	
 	get_parent().add_child(new_log)
-	
 	
